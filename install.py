@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:37:09
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-07-28 17:49:26
+LastEditTime: 2023-08-01 10:39:29
 Description: file content
 '''
 import os
@@ -34,6 +34,7 @@ def download(url, path):
 
 if not os.path.exists(stable_model_path):
     download(stable_model_url, stable_model_path)
+
 
 if not os.path.exists(artistic_model_path):
     download(artistic_model_url, artistic_model_path)

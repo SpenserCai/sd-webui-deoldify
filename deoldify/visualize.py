@@ -141,6 +141,18 @@ class ModelImageVisualizer:
         )
 
         return filtered_image
+    
+    # 直接从图片转换
+    def get_transformed_image_from_image(
+        self, image: Image, render_factor: int = None, post_process: bool = True,
+    ) -> Image:
+        self._clean_mem()
+        orig_image = image
+        filtered_image = self.filter.filter(
+            orig_image, orig_image, render_factor=render_factor,post_process=post_process
+        )
+
+        return filtered_image
 
     def _plot_image(
         self,
