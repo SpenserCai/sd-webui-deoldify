@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 15:49:52
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-02 09:45:41
+LastEditTime: 2023-08-02 10:12:03
 Description: file content
 '''
 from deoldify import device
@@ -18,6 +18,8 @@ from deoldify.visualize import *
 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning, message=".*?Your .*? set is empty.*?")
+warnings.filterwarnings("ignore", category=UserWarning, message="The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.")
+warnings.filterwarnings("ignore", category=FutureWarning, message="Arguments other than a weight enum or `None`.*?")
 
 # 图片转换为base64编码
 def image_to_base64(image_path):
