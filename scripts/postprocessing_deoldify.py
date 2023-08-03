@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 14:40:50
+LastEditTime: 2023-08-03 15:11:07
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -44,13 +44,15 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
         }
     
     def process_image(self, image, render_factor, artistic):
-        vis = get_image_colorizer(root_folder=Path("models/deoldify"),render_factor=render_factor, artistic=artistic)
+        vis = get_image_colorizer(root_folder=Path("models"),render_factor=render_factor, artistic=artistic)
         outImg = vis.get_transformed_image_from_image(image, render_factor=render_factor)
         return outImg
 
     def process(self, pp: scripts_postprocessing.PostprocessedImage, is_enabled, render_factor, artistic):
         if not is_enabled or is_enabled is False:
             return
+        
+        print(type(pp.image))
 
         pp.image = self.process_image(pp.image, render_factor, artistic)
         pp.info["deoldify"] = f"render_factor={render_factor}, artistic={artistic}"

@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 15:49:52
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-02 10:12:03
+LastEditTime: 2023-08-03 15:04:13
 Description: file content
 '''
 from deoldify import device
@@ -30,7 +30,7 @@ def image_to_base64(image_path):
     return image_b64
 
 def ColorizeImage(base64str, render_factor=50, artistic=False):
-    vis = get_image_colorizer(render_factor=render_factor, artistic=artistic)
+    vis = get_image_colorizer(root_folder=Path("models"),render_factor=render_factor, artistic=artistic)
     # 把base64转换成图片 PIL.Image
     img = Image.open(BytesIO(base64.b64decode(base64str)))
     print("loaded image")
