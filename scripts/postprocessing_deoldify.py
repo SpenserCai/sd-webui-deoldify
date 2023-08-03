@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 15:11:07
+LastEditTime: 2023-08-03 16:23:53
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -24,17 +24,16 @@ warnings.filterwarnings("ignore", category=FutureWarning, message="Arguments oth
 
 class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
     name = "Deoldify"
-    order = 20999
-    model = None
+    order = 20001
 
     def ui(self):
         with FormRow():
-            is_enabled = gr.Checkbox(label="启用")
+            is_enabled = gr.Checkbox(label="Deoldify")
             is_enabled.value = False
-            render_factor = gr.Slider(minimum=1, maximum=50, step=1, label="渲染因子")
+            render_factor = gr.Slider(minimum=1, maximum=50, step=1, label="Render Factor")
             render_factor.value = 35
             # 一个名为artistic的复选框，初始值是False
-            artistic = gr.Checkbox(label="艺术化")
+            artistic = gr.Checkbox(label="Artistic")
             artistic.value = False
 
         return {
@@ -51,8 +50,6 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
     def process(self, pp: scripts_postprocessing.PostprocessedImage, is_enabled, render_factor, artistic):
         if not is_enabled or is_enabled is False:
             return
-        
-        print(type(pp.image))
 
         pp.image = self.process_image(pp.image, render_factor, artistic)
         pp.info["deoldify"] = f"render_factor={render_factor}, artistic={artistic}"

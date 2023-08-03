@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 15:49:52
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 15:04:13
+LastEditTime: 2023-08-03 16:22:46
 Description: file content
 '''
 from deoldify import device
@@ -26,14 +26,12 @@ def image_to_base64(image_path):
     with open(image_path, 'rb') as f:
         image = f.read()
     image_b64 = base64.b64encode(image).decode()
-    print("image to base64")
     return image_b64
 
 def ColorizeImage(base64str, render_factor=50, artistic=False):
     vis = get_image_colorizer(root_folder=Path("models"),render_factor=render_factor, artistic=artistic)
     # 把base64转换成图片 PIL.Image
     img = Image.open(BytesIO(base64.b64decode(base64str)))
-    print("loaded image")
     outImg = vis.get_transformed_image_from_image(img, render_factor=render_factor)
     return outImg
 
