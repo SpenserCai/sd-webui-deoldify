@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 14:02:30
+LastEditTime: 2023-08-03 14:40:50
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore", category=FutureWarning, message="Arguments oth
 
 class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
     name = "Deoldify"
-    order = 20000
+    order = 20999
     model = None
 
     def ui(self):
@@ -44,7 +44,7 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
         }
     
     def process_image(self, image, render_factor, artistic):
-        vis = get_image_colorizer(render_factor=render_factor, artistic=artistic)
+        vis = get_image_colorizer(root_folder=Path("models/deoldify"),render_factor=render_factor, artistic=artistic)
         outImg = vis.get_transformed_image_from_image(image, render_factor=render_factor)
         return outImg
 

@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:37:40
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 13:54:15
+LastEditTime: 2023-08-03 14:41:58
 Description: file content
 '''
 # DeOldify API
@@ -30,7 +30,7 @@ def deoldify_api(_: gr.Blocks, app: FastAPI):
         render_factor: int = Body(35,title="render factor"),
         artistic: bool = Body(False,title="artistic")
     ):
-        vis = get_image_colorizer(render_factor=render_factor, artistic=artistic)
+        vis = get_image_colorizer(root_folder=Path("models/deoldify"),render_factor=render_factor, artistic=artistic)
         # 把base64转换成图片 PIL.Image
         img = Image.open(BytesIO(base64.b64decode(input_image)))
         outImg = vis.get_transformed_image_from_image(img, render_factor=render_factor)
