@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-03 23:22:34
+ * @LastEditTime: 2023-08-03 23:35:18
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -48,6 +48,10 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 | Before | After |
 | :----: | :----: |
 | <img src="examples/before.jpeg" alt="before" align=center /> | <img src="examples/after.jpeg" alt="after" align=center /> |
+
+## TODO
+- [ ] Support video colorization
+- [ ] Support repair options
 
 
 
