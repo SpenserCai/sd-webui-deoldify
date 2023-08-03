@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-03 23:35:18
+ * @LastEditTime: 2023-08-03 23:57:02
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -52,6 +52,7 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 ## TODO
 - [ ] Support video colorization
 - [ ] Support repair options
+- [ ] Support for simultaneous generation of images with different Render Factor values and Artistic on/off like “X/Y/Z Script” [#2](https://github.com/SpenserCai/sd-webui-deoldify/issues/2)
 
 
 
