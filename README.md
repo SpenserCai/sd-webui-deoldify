@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-03 23:57:02
+ * @LastEditTime: 2023-08-04 09:27:10
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -16,10 +16,10 @@ This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github
 ### OS
 
 <!--制作一个表格显示操作系统的兼容性，Windows不确定，linux兼容-->
-| OS | Compatibility |
-| :----: | :----: |
-| Windows | ❓ |
-| Linux | ✅ |
+| OS | Compatibility | Remark |
+| :----: | :----: | :----: |
+| Windows 11 | ✅ | Thank for [@w-e-w](https://github.com/w-e-w) test |
+| Linux | ✅ | |
 
 
 ### Pytorch
@@ -28,6 +28,7 @@ This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github
 | :----: | :----: | :----: |
 | <=1.13.1+cu117 | ✅ | |
 | 2.1.0.dev20230711+rocm5.5  | ✅ | Thanks for [@fgtm2023](https://github.com/fgtm2023) test | 
+| 2.0.1+cu118 | ✅ | Thank for [@w-e-w](https://github.com/w-e-w) test |
 
 ### Other
 If you have tested other systems or Pytorch during use, please submit a PR and attach a screenshot of the successful operation. Thank you
