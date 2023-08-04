@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-04 09:27:10
+ * @LastEditTime: 2023-08-04 10:22:46
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -35,6 +35,8 @@ If you have tested other systems or Pytorch during use, please submit a PR and a
 
 ## Installation
 In web-ui, go to the "Extensions" tab and use this URL https://github.com/SpenserCai/sd-webui-deoldify in the "install from URL" tab.
+
+If your network is not good, you can download the extension from [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue)](https://huggingface.co/spensercai/DeOldify)
 
 ## Usage
 1.To completely exit webui, you need to add `--disable-safe-unpickle` at startup.

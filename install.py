@@ -3,16 +3,17 @@ Author: SpenserCai
 Date: 2023-07-28 14:37:09
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 14:53:27
+LastEditTime: 2023-08-04 09:47:33
 Description: file content
 '''
 import os
 import launch
+from modules import paths_internal
 import urllib.request
 from tqdm import tqdm
 # 从huggingface下载权重
 
-models_dir = os.path.abspath("models/deoldify")
+models_dir = os.path.join(paths_internal.models_path, "deoldify")
 stable_model_url = "https://huggingface.co/spensercai/DeOldify/resolve/main/ColorizeStable_gen.pth"
 artistic_model_url = "https://huggingface.co/spensercai/DeOldify/resolve/main/ColorizeArtistic_gen.pth"
 video_model_url = "https://huggingface.co/spensercai/DeOldify/resolve/main/ColorizeVideo_gen.pth"

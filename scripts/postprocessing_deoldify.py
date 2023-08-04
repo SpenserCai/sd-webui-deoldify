@@ -3,11 +3,11 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-03 16:23:53
+LastEditTime: 2023-08-04 10:13:13
 Description: file content
 '''
 # DeOldify UI & Processing
-from modules import scripts_postprocessing
+from modules import scripts_postprocessing, paths_internal
 import gradio as gr
 
 from modules.ui_components import FormRow
@@ -43,7 +43,7 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
         }
     
     def process_image(self, image, render_factor, artistic):
-        vis = get_image_colorizer(root_folder=Path("models"),render_factor=render_factor, artistic=artistic)
+        vis = get_image_colorizer(root_folder=Path(paths_internal.models_path),render_factor=render_factor, artistic=artistic)
         outImg = vis.get_transformed_image_from_image(image, render_factor=render_factor)
         return outImg
 
