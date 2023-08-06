@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-06 20:44:00
+LastEditTime: 2023-08-06 20:48:23
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -28,8 +28,8 @@ def deoldify_tab():
                     artistic.value = False
                 with gr.Column():
                     video_output = gr.outputs.Video(label="修复后的视频",type="auto")
-                run_button = gr.Button(label="Run")
-                run_button.click(inputs=[video_input,render_factor,artistic],outputs=[video_output],fn=process_image)
+            run_button = gr.Button(label="Run")
+            run_button.click(inputs=[video_input,render_factor,artistic],outputs=[video_output],fn=process_image)
 
     return [(ui,"DeOldify","DeOldify")]
 
