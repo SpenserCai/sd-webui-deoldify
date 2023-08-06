@@ -3,17 +3,17 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-06 20:31:22
+LastEditTime: 2023-08-06 20:38:17
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
 import gradio as gr
 import string
 
-def process_image(video, render_factor, artistic):
-    return video
 
 def deoldify_tab():
+    def process_image(video, render_factor, artistic):
+      return video
     with gr.Blocks(analytics_enabled=False) as ui:
         # 多个tab第一个是video
         with gr.Tab("Video"):
