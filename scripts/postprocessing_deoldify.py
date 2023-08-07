@@ -3,20 +3,23 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 20:52:30
+LastEditTime: 2023-08-07 21:39:37
 Description: file content
 '''
 # DeOldify UI & Processing
 from modules import scripts_postprocessing, paths_internal
+from modules.devices import device, torch_gc, cpu
 import gradio as gr
 
 from modules.ui_components import FormRow
 
-from deoldify import device
+from deoldify import device as deoldify_device
 from deoldify.device_id import DeviceId
 from PIL import Image
 
-device.set(device=DeviceId.GPU0)
+print(f"sd device:{device}")
+
+deoldify_device.set(device=DeviceId.GPU0)
 
 from deoldify.visualize import *
 
