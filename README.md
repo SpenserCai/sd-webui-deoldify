@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-05 17:41:19
+ * @LastEditTime: 2023-08-07 16:06:18
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -55,7 +55,7 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 | <img src="examples/before.jpeg" alt="before" align=center /> | <img src="examples/after.jpeg" alt="after" align=center /> |
 
 ## TODO
-- [ ] Support video colorization
+- [x] Support video colorization
 - [ ] Support repair options
 - [ ] Support for simultaneous generation of images with different Render Factor values and Artistic on/off like “X/Y/Z Script” [#2](https://github.com/SpenserCai/sd-webui-deoldify/issues/2)
 - [ ] Support need not to add `--disable-safe-unpickle` at startup [#5](https://github.com/SpenserCai/sd-webui-deoldify/issues/5)
