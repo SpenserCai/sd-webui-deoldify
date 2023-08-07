@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 15:27:10
+LastEditTime: 2023-08-07 15:31:30
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -25,7 +25,10 @@ def process_image(video, render_factor):
     colorizer = get_stable_video_colorizer(root_folder=Path(paths_internal.models_path) ,workfolder=wkfolder)
     video_name = os.path.basename(video)
     # 把video复制到临时文件夹
-    shutil.copy(video, wkfolder/video_name)
+    source_path = wkfolder/"source"
+    if not source_path.exists():
+        source_path.mkdir()
+    shutil.copy(video, source_path/video_name)
     out_video = colorizer.colorize_from_file_name(video_name, render_factor=render_factor)
     return out_video
 
