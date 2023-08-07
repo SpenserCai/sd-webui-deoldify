@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-04 10:13:13
+LastEditTime: 2023-08-07 20:52:30
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -12,8 +12,11 @@ import gradio as gr
 
 from modules.ui_components import FormRow
 
+from deoldify import device
 from deoldify.device_id import DeviceId
 from PIL import Image
+
+device.set(device=DeviceId.GPU0)
 
 from deoldify.visualize import *
 
