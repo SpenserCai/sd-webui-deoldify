@@ -183,14 +183,14 @@ class ModelImageVisualizer:
 
 
 class VideoColorizer:
-    def __init__(self, vis: ModelImageVisualizer):
+    def __init__(self, vis: ModelImageVisualizer,workfolder: Path = None):
         self.vis = vis
-        workfolder = Path('./video')
-        self.source_folder = workfolder / "source"
-        self.bwframes_root = workfolder / "bwframes"
-        self.audio_root = workfolder / "audio"
-        self.colorframes_root = workfolder / "colorframes"
-        self.result_folder = workfolder / "result"
+        self.workfolder = workfolder
+        self.source_folder = self.workfolder / "source"
+        self.bwframes_root = self.workfolder / "bwframes"
+        self.audio_root = self.workfolder / "audio"
+        self.colorframes_root = self.workfolder / "colorframes"
+        self.result_folder = self.workfolder / "result"
 
     def _purge_images(self, dir):
         for f in os.listdir(dir):
@@ -379,8 +379,8 @@ class VideoColorizer:
         return self._build_video(source_path)
 
 
-def get_video_colorizer(render_factor: int = 21) -> VideoColorizer:
-    return get_stable_video_colorizer(render_factor=render_factor)
+def get_video_colorizer(render_factor: int = 21,workfolder:str = "./video") -> VideoColorizer:
+    return get_stable_video_colorizer(render_factor=render_factor,workfolder=workfolder)
 
 
 def get_artistic_video_colorizer(
@@ -399,12 +399,13 @@ def get_stable_video_colorizer(
     root_folder: Path = Path('./'),
     weights_name: str = 'ColorizeVideo_gen',
     results_dir='result_images',
-    render_factor: int = 21
+    render_factor: int = 21,
+    workfolder:str = "./video"
 ) -> VideoColorizer:
     learn = gen_inference_wide(root_folder=root_folder, weights_name=weights_name)
     filtr = MasterFilter([ColorizerFilter(learn=learn)], render_factor=render_factor)
     vis = ModelImageVisualizer(filtr, results_dir=results_dir)
-    return VideoColorizer(vis)
+    return VideoColorizer(vis,workfolder=workfolder)
 
 
 def get_image_colorizer(

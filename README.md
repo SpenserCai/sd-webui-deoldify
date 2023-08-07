@@ -3,11 +3,12 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-05 17:41:19
+ * @LastEditTime: 2023-08-07 17:23:57
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
-This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) that allows colorize of old photos. It is based on [deoldify](https://github.com/jantic/DeOldify).
+
+This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) that allows colorize of old photos and old video. It is based on [deoldify](https://github.com/jantic/DeOldify).
 
 ![example](examples/demo.jpeg)
 
@@ -54,8 +55,29 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 | :----: | :----: |
 | <img src="examples/before.jpeg" alt="before" align=center /> | <img src="examples/after.jpeg" alt="after" align=center /> |
 
+## Video Colorization
+
+<img src="examples/video_demo.gif" alt="video_demo" align=center />
+
+<hr/>
+
+### Usage
+
+```bash
+sudo apt install ffmpeg
+```
+
+In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and click "Run".
+
+### Tips
+
+Now,colorization need long time,please wait patiently.
+
+
+
+
 ## TODO
-- [ ] Support video colorization
+- [x] Support video colorization
 - [ ] Support repair options
 - [ ] Support for simultaneous generation of images with different Render Factor values and Artistic on/off like “X/Y/Z Script” [#2](https://github.com/SpenserCai/sd-webui-deoldify/issues/2)
 - [ ] Support need not to add `--disable-safe-unpickle` at startup [#5](https://github.com/SpenserCai/sd-webui-deoldify/issues/5)
