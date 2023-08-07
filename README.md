@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-07 17:11:03
+ * @LastEditTime: 2023-08-07 17:23:57
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -61,13 +61,19 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 
 <hr/>
 
-In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and click "Run".
-Now,colorization need long time,please wait patiently.
+### Usage
 
-You need install `ffmpeg`
 ```bash
 sudo apt install ffmpeg
 ```
+
+In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and click "Run".
+
+### Tips
+
+Now,colorization need long time,please wait patiently.
+
+
 
 
 ## TODO
