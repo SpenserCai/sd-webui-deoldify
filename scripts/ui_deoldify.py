@@ -3,11 +3,17 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 15:59:59
+LastEditTime: 2023-08-07 20:53:00
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
 import gradio as gr
+
+from deoldify import device
+from deoldify.device_id import DeviceId
+
+device.set(device=DeviceId.GPU0)
+
 from deoldify.visualize import *
 import tempfile
 import os
