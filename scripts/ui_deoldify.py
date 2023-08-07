@@ -3,12 +3,13 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-06 21:19:23
+LastEditTime: 2023-08-06 21:42:47
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
 import gradio as gr
 from deoldify.visualize import *
+import tempfile
 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning, message=".*?Your .*? set is empty.*?")
@@ -16,10 +17,11 @@ warnings.filterwarnings("ignore", category=UserWarning, message="The parameter '
 warnings.filterwarnings("ignore", category=FutureWarning, message="Arguments other than a weight enum or `None`.*?")
 
 def process_image(video, render_factor):
-    # colorizer = get_video_colorizer()
-    # out_video = colorizer.colorize_from_file_name(video, render_factor=render_factor)
-    print(type(video))
-    return video
+    colorizer = get_video_colorizer(workfolder=Path(tempfile.gettempdir() + '/deoldify'))
+    # 把video复制到缓存路径
+    
+    out_video = colorizer.colorize_from_file_name(video, render_factor=render_factor)
+    return out_video
 
 def deoldify_tab():
     with gr.Blocks(analytics_enabled=False) as ui:
