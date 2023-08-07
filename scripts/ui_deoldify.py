@@ -3,16 +3,22 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 21:57:30
+LastEditTime: 2023-08-07 22:00:08
 Description: file content
 '''
 from modules import script_callbacks,shared, paths_internal
 import gradio as gr
 
-from deoldify import device
+from deoldify import device as deoldify_device
 from deoldify.device_id import DeviceId
 
-device.set(device=DeviceId.GPU0)
+device_id = shared.cmd_opts.device_id
+
+if device_id is not None:
+    device_id = DeviceId(int(device_id))
+    deoldify_device.set(device=device_id)
+else:
+    deoldify_device.set(device=DeviceId.GPU0)
 
 from deoldify.visualize import *
 import tempfile

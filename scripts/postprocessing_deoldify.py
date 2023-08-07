@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 21:57:05
+LastEditTime: 2023-08-07 21:59:43
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -18,15 +18,11 @@ from PIL import Image
 
 device_id = shared.cmd_opts.device_id
 
-# if device_id is not None:
-#     device_id = DeviceId[device_id.upper()]
-#     deoldify_device.set(device=device_id)
-# else:
-#     deoldify_device.set(device=DeviceId.GPU0)
-
-print("DeOldify device:", device_id)
-
-deoldify_device.set(device=DeviceId.GPU0)
+if device_id is not None:
+    device_id = DeviceId(int(device_id))
+    deoldify_device.set(device=device_id)
+else:
+    deoldify_device.set(device=DeviceId.GPU0)
 
 from deoldify.visualize import *
 
