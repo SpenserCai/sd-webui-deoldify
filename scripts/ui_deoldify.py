@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 15:31:30
+LastEditTime: 2023-08-07 15:59:59
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -30,6 +30,12 @@ def process_image(video, render_factor):
         source_path.mkdir()
     shutil.copy(video, source_path/video_name)
     out_video = colorizer.colorize_from_file_name(video_name, render_factor=render_factor)
+    # 删除wkfolder中除了result以外的目录
+    for dir in wkfolder.iterdir():
+        if dir.name != 'result':
+            shutil.rmtree(dir)
+    # 把out_video从Path对象转换为str
+    out_video = str(out_video)
     return out_video
 
 def deoldify_tab():
