@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-07 17:00:21
+ * @LastEditTime: 2023-08-07 17:11:03
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
@@ -57,7 +57,7 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 
 ## Video Colorization
 
-<img src="examples/video_demo.jpeg" alt="video" align=center />
+<img src="examples/video_demo.gif" alt="video_demo" align=center />
 
 <hr/>
 
@@ -68,12 +68,6 @@ You need install `ffmpeg`
 ```bash
 sudo apt install ffmpeg
 ```
-
-### Before
-<video src="examples/video_before.mp4" controls="controls" width="500" height="300">Your browser does not support the video tag.</video>
-
-### After
-<video src="examples/video_after.mp4" controls="controls" width="500" height="300">Your browser does not support the video tag.</video>
 
 
 ## TODO
