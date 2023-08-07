@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 15:09:26
+LastEditTime: 2023-08-07 15:27:10
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -20,6 +20,8 @@ warnings.filterwarnings("ignore", category=FutureWarning, message="Arguments oth
 
 def process_image(video, render_factor):
     wkfolder = Path(tempfile.gettempdir() + '/deoldify')
+    if not wkfolder.exists():
+        wkfolder.mkdir()
     colorizer = get_stable_video_colorizer(root_folder=Path(paths_internal.models_path) ,workfolder=wkfolder)
     video_name = os.path.basename(video)
     # 把video复制到临时文件夹
