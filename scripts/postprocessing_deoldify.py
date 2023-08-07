@@ -3,12 +3,11 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 21:39:37
+LastEditTime: 2023-08-07 21:57:05
 Description: file content
 '''
 # DeOldify UI & Processing
-from modules import scripts_postprocessing, paths_internal
-from modules.devices import device, torch_gc, cpu
+from modules import scripts_postprocessing,shared, paths_internal
 import gradio as gr
 
 from modules.ui_components import FormRow
@@ -17,7 +16,15 @@ from deoldify import device as deoldify_device
 from deoldify.device_id import DeviceId
 from PIL import Image
 
-print(f"sd device:{device}")
+device_id = shared.cmd_opts.device_id
+
+# if device_id is not None:
+#     device_id = DeviceId[device_id.upper()]
+#     deoldify_device.set(device=device_id)
+# else:
+#     deoldify_device.set(device=DeviceId.GPU0)
+
+print("DeOldify device:", device_id)
 
 deoldify_device.set(device=DeviceId.GPU0)
 

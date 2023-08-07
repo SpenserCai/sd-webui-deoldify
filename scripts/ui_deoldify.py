@@ -3,10 +3,10 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 20:53:00
+LastEditTime: 2023-08-07 21:57:30
 Description: file content
 '''
-from modules import script_callbacks, paths_internal
+from modules import script_callbacks,shared, paths_internal
 import gradio as gr
 
 from deoldify import device
