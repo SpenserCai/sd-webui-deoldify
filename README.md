@@ -3,11 +3,12 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-07 16:06:18
+ * @LastEditTime: 2023-08-07 17:00:21
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
-This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) that allows colorize of old photos. It is based on [deoldify](https://github.com/jantic/DeOldify).
+
+This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) that allows colorize of old photos and old video. It is based on [deoldify](https://github.com/jantic/DeOldify).
 
 ![example](examples/demo.jpeg)
 
@@ -53,6 +54,27 @@ Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
 | Before | After |
 | :----: | :----: |
 | <img src="examples/before.jpeg" alt="before" align=center /> | <img src="examples/after.jpeg" alt="after" align=center /> |
+
+## Video Colorization
+
+<img src="examples/video_demo.jpeg" alt="video" align=center />
+
+<hr/>
+
+In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and click "Run".
+Now,colorization need long time,please wait patiently.
+
+You need install `ffmpeg`
+```bash
+sudo apt install ffmpeg
+```
+
+### Before
+<video src="examples/video_before.mp4" controls="controls" width="500" height="300">Your browser does not support the video tag.</video>
+
+### After
+<video src="examples/video_after.mp4" controls="controls" width="500" height="300">Your browser does not support the video tag.</video>
+
 
 ## TODO
 - [x] Support video colorization
