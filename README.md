@@ -3,10 +3,13 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-07 20:55:47
+ * @LastEditTime: 2023-08-08 17:57:53
  * @Description: file content
 -->
 # DeOldify for Stable Diffusion WebUI
+  <a href="https://discord.gg/rfU5FQATtv">
+    <img src="https://discordapp.com/api/guilds/1138404797364580415/widget.png?style=shield" alt="Discord Server">
+  </a>
 
 This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) that allows colorize of old photos and old video. It is based on [deoldify](https://github.com/jantic/DeOldify).
 
