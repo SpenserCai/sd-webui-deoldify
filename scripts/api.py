@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:37:40
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-09 22:25:02
+LastEditTime: 2023-08-09 22:31:43
 Description: file content
 '''
 # DeOldify API
@@ -28,7 +28,7 @@ def deoldify_api(_: gr.Blocks, app: FastAPI):
         render_factor: int = Body(35,title="render factor"),
         artistic: bool = Body(False,title="artistic")
     ):
-        vis = get_image_colorizer(root_folder=Path(paths_internal.models_pat),render_factor=render_factor, artistic=artistic)
+        vis = get_image_colorizer(root_folder=Path(paths_internal.models_path),render_factor=render_factor, artistic=artistic)
         # 判断input_image是否是url
         if input_image.startswith("http"):
             img = vis._get_image_from_url(input_image)
