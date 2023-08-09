@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:37:40
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-07 22:04:42
+LastEditTime: 2023-08-09 10:11:06
 Description: file content
 '''
 # DeOldify API
@@ -11,23 +11,10 @@ from fastapi import FastAPI, Body
 
 from modules.api.models import *
 from modules.api import api
-from modules import paths_internal,shared
+from modules import paths_internal
+from scripts.deoldify_base import *
 import gradio as gr
-
-from deoldify import device as deoldify_device
-from deoldify.device_id import DeviceId
-
-device_id = shared.cmd_opts.device_id
-
-if device_id is not None:
-    device_id = DeviceId(int(device_id))
-    deoldify_device.set(device=device_id)
-else:
-    deoldify_device.set(device=DeviceId.GPU0)
-
 from PIL import Image
-
-from deoldify.visualize import *
 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning, message=".*?Your .*? set is empty.*?")

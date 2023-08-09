@@ -3,11 +3,11 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-09 10:06:03
+LastEditTime: 2023-08-09 10:11:23
 Description: file content
 '''
 # DeOldify UI & Processing
-from modules import scripts_postprocessing,shared, paths_internal
+from modules import scripts_postprocessing, paths_internal
 from modules.ui_components import FormRow
 from scripts.deoldify_base import *
 import gradio as gr
