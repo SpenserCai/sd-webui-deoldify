@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:37:40
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-09 10:11:06
+LastEditTime: 2023-08-09 22:25:02
 Description: file content
 '''
 # DeOldify API
@@ -29,8 +29,12 @@ def deoldify_api(_: gr.Blocks, app: FastAPI):
         artistic: bool = Body(False,title="artistic")
     ):
         vis = get_image_colorizer(root_folder=Path(paths_internal.models_pat),render_factor=render_factor, artistic=artistic)
-        # 把base64转换成图片 PIL.Image
-        img = Image.open(BytesIO(base64.b64decode(input_image)))
+        # 判断input_image是否是url
+        if input_image.startswith("http"):
+            img = vis._get_image_from_url(input_image)
+        else:
+            # 把base64转换成图片 PIL.Image
+            img = Image.open(BytesIO(base64.b64decode(input_image)))
         outImg = vis.get_transformed_image_from_image(img, render_factor=render_factor)
         return {"image": api.encode_pil_to_base64(outImg).decode("utf-8")}
 
