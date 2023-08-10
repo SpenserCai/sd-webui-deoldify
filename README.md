@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-08 23:25:37
+ * @LastEditTime: 2023-08-11 01:32:40
  * @Description: file content
 -->
 
@@ -24,6 +24,13 @@ This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github
 </div>
 
 ![example](examples/demo.jpeg)
+
+<!--加粗字体：News-->
+## News
+### - 2023-08-11：The DeoldifyBot is onlined.You can colorize old photo in [Discord](https://discord.gg/rfU5FQATtv).
+### - 2023-08-07：Support video colorization.
+### - 2023-08-05：Support install from Extensions list.
+### - 2023-08-04：sd-webui-deoldify released.
 
 ## Compatibility
 
@@ -82,8 +89,8 @@ sudo apt install ffmpeg
 
 In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and click "Run".
 
-
-
+## DeOldifyBot
+![DeoldifyBot](examples/discord.gif)
 
 ## TODO
 - [x] Support video colorization
