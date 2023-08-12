@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-11 01:32:40
+ * @LastEditTime: 2023-08-12 22:03:33
  * @Description: file content
 -->
 
@@ -27,6 +27,7 @@ This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github
 
 <!--加粗字体：News-->
 ## News
+### - 2023-08-12：The DeoldifyBot is open source, you can deploy it yourself.
 ### - 2023-08-11：The DeoldifyBot is onlined.You can colorize old photo in [Discord](https://discord.gg/rfU5FQATtv).
 ### - 2023-08-07：Support video colorization.
 ### - 2023-08-05：Support install from Extensions list.
@@ -90,7 +91,31 @@ sudo apt install ffmpeg
 In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and click "Run".
 
 ## DeOldifyBot
+
+### Usage
+
+#### 1.Add [Discord](https://discord.gg/rfU5FQATtv) Server.
+
 ![DeoldifyBot](examples/discord.gif)
+
+#### 2.Build your own DeOldifyBot
+```bash
+# Instal golang
+# https://golang.org/doc/install
+
+# Create release directory
+mkdir release
+# Build
+bash build.sh
+# create config.json
+cp ./config.example ./release/config.json
+# Edit config.json
+# Set your discord bot token
+# Set your sd-webui address
+
+# Run
+release/DeOldifyBot
+```
 
 ## TODO
 - [x] Support video colorization
