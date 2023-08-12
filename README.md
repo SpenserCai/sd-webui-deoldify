@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-12 22:03:33
+ * @LastEditTime: 2023-08-13 01:11:51
  * @Description: file content
 -->
 
@@ -103,6 +103,8 @@ In "DeOldify" tab, upload the video you want to colorize,set "Render Factor" and
 # Instal golang
 # https://golang.org/doc/install
 
+# Enter bot directory
+cd bot
 # Create release directory
 mkdir release
 # Build
