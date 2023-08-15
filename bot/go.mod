@@ -3,7 +3,7 @@ module DeoldifyBot
 go 1.19
 
 require (
-	github.com/SpenserCai/sd-webui-go v0.1.2
+	github.com/SpenserCai/sd-webui-go v0.2.3
 	github.com/bwmarrin/discordgo v0.27.1
 )
 
