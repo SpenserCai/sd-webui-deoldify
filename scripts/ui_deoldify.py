@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-21 16:41:20
+LastEditTime: 2023-08-21 17:21:44
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -44,8 +44,6 @@ def deoldify_tab():
                     render_factor = gr.Slider(minimum=1, maximum=50, step=1, label="Render Factor")
                     render_factor.value = 35
                 with gr.Column():
-                    # 进度条
-                    
                     video_output = gr.outputs.Video(label="修复后的视频")
             run_button = gr.Button(label="Run")
             run_button.click(inputs=[video_input,render_factor],outputs=[video_output],fn=process_image)

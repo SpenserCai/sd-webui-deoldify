@@ -380,6 +380,7 @@ class VideoColorizer:
             raise Exception(
                 'Video at path specfied, ' + str(source_path) + ' could not be found.'
             )
+        g_process_bar(0,"Extracting frames...")
         self._extract_raw_frames(source_path)
         self._colorize_raw_frames(
             source_path, render_factor=render_factor,post_process=post_process,g_process_bar=g_process_bar
