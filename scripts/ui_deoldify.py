@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-21 17:21:44
+LastEditTime: 2023-08-21 17:29:20
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -19,6 +19,7 @@ def process_image(video, render_factor,process=gr.Progress()):
         wkfolder.mkdir()
     colorizer = get_stable_video_colorizer(root_folder=Path(paths_internal.models_path) ,workfolder=wkfolder)
     video_name = os.path.basename(video)
+    process(0,"Copying video to temp folder...")
     # 把video复制到临时文件夹
     source_path = wkfolder/"source"
     if not source_path.exists():
