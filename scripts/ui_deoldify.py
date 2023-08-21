@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-08-06 20:15:12
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-09 10:11:29
+LastEditTime: 2023-08-21 17:29:20
 Description: file content
 '''
 from modules import script_callbacks, paths_internal
@@ -13,18 +13,19 @@ import tempfile
 import os
 import shutil
 
-def process_image(video, render_factor):
+def process_image(video, render_factor,process=gr.Progress()):
     wkfolder = Path(tempfile.gettempdir() + '/deoldify')
     if not wkfolder.exists():
         wkfolder.mkdir()
     colorizer = get_stable_video_colorizer(root_folder=Path(paths_internal.models_path) ,workfolder=wkfolder)
     video_name = os.path.basename(video)
+    process(0,"Copying video to temp folder...")
     # 把video复制到临时文件夹
     source_path = wkfolder/"source"
     if not source_path.exists():
         source_path.mkdir()
     shutil.copy(video, source_path/video_name)
-    out_video = colorizer.colorize_from_file_name(video_name, render_factor=render_factor)
+    out_video = colorizer.colorize_from_file_name(video_name, render_factor=render_factor,g_process_bar=process)
     # 删除wkfolder中除了result以外的目录
     for dir in wkfolder.iterdir():
         if dir.name != 'result':
