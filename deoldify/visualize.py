@@ -12,6 +12,7 @@ from io import BytesIO
 import base64
 import cv2
 import logging
+import gradio as gr
 
 class ModelImageVisualizer:
     def __init__(self, filter: IFilter, results_dir: str = None):
@@ -258,15 +259,22 @@ class VideoColorizer:
             raise e
 
     def _colorize_raw_frames(
-        self, source_path: Path, render_factor: int = None, post_process: bool = True,
+        self, source_path: Path, render_factor: int = None, post_process: bool = True,g_process_bar: gr.Progress = None
     ):
         colorframes_folder = self.colorframes_root / (source_path.stem)
         colorframes_folder.mkdir(parents=True, exist_ok=True)
         self._purge_images(colorframes_folder)
         bwframes_folder = self.bwframes_root / (source_path.stem)
-
+        p_status = 0
+        image_index = 0
+        total_images = len(os.listdir(str(bwframes_folder)))
         for img in progress_bar(os.listdir(str(bwframes_folder))):
             img_path = bwframes_folder / img
+
+            image_index += 1
+            if g_process_bar is not None:
+                p_status = image_index / total_images
+                g_process_bar(p_status,"Colorizing...")
 
             if os.path.isfile(str(img_path)):
                 color_image = self.vis.get_transformed_image(
@@ -358,15 +366,15 @@ class VideoColorizer:
         )
 
     def colorize_from_file_name(
-        self, file_name: str, render_factor: int = None, post_process: bool = True,
+        self, file_name: str, render_factor: int = None, post_process: bool = True,g_process_bar: gr.Progress = None
     ) -> Path:
         source_path = self.source_folder / file_name
         return self._colorize_from_path(
-            source_path, render_factor=render_factor,  post_process=post_process
+            source_path, render_factor=render_factor,  post_process=post_process,g_process_bar=g_process_bar
         )
 
     def _colorize_from_path(
-        self, source_path: Path, render_factor: int = None, post_process: bool = True
+        self, source_path: Path, render_factor: int = None, post_process: bool = True,g_process_bar: gr.Progress = None
     ) -> Path:
         if not source_path.exists():
             raise Exception(
@@ -374,7 +382,7 @@ class VideoColorizer:
             )
         self._extract_raw_frames(source_path)
         self._colorize_raw_frames(
-            source_path, render_factor=render_factor,post_process=post_process
+            source_path, render_factor=render_factor,post_process=post_process,g_process_bar=g_process_bar
         )
         return self._build_video(source_path)
 
