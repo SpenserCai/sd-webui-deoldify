@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 14:35:35
  * @version: 
  * @LastEditors: SpenserCai
- * @LastEditTime: 2023-08-13 01:11:51
+ * @LastEditTime: 2023-08-28 01:05:53
  * @Description: file content
 -->
 
@@ -18,6 +18,9 @@
 <a href="https://discord.gg/rfU5FQATtv">
   <img src="https://discordapp.com/api/guilds/1138404797364580415/widget.png?style=shield" alt="Discord Server">
 </a>
+  <a href="https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=21gXfxbmZLJ&businessType=7&from=181074&biz=ka">
+    <img src="https://img.shields.io/badge/QQ%E9%A2%91%E9%81%93-SD%20WEBUI%20DEOLDIFY-5492ff?style=flat-square" alt="QQ Channel">
+  </a>
 
 This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) that allows colorize of old photos and old video. It is based on [deoldify](https://github.com/jantic/DeOldify).
 
