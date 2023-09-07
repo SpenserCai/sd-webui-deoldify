@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-09-07 10:33:23
+LastEditTime: 2023-09-07 10:46:08
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -38,6 +38,7 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
     def process_image(self, image, render_factor, artistic, pre_decolorization):
         if pre_decolorization:
             image = Decolorization(image)
+        return image
         vis = get_image_colorizer(root_folder=Path(paths_internal.models_path),render_factor=render_factor, artistic=artistic)
         outImg = vis.get_transformed_image_from_image(image, render_factor=render_factor)
         return outImg
