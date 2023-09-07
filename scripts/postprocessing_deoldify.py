@@ -3,7 +3,7 @@ Author: SpenserCai
 Date: 2023-07-28 14:41:28
 version: 
 LastEditors: SpenserCai
-LastEditTime: 2023-08-09 10:11:23
+LastEditTime: 2023-09-07 10:33:23
 Description: file content
 '''
 # DeOldify UI & Processing
@@ -25,21 +25,26 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
             # 一个名为artistic的复选框，初始值是False
             artistic = gr.Checkbox(label="Artistic")
             artistic.value = False
+            pre_decolorization = gr.Checkbox(label="Pre-Decolorization",info="For yellowed photos, this option can be used to fade to black and white before coloring")
+            pre_decolorization.value = False
 
         return {
             "is_enabled": is_enabled,
             "render_factor": render_factor,
             "artistic": artistic,
+            "pre_decolorization": pre_decolorization
         }
     
-    def process_image(self, image, render_factor, artistic):
+    def process_image(self, image, render_factor, artistic, pre_decolorization):
+        if pre_decolorization:
+            image = Decolorization(image)
         vis = get_image_colorizer(root_folder=Path(paths_internal.models_path),render_factor=render_factor, artistic=artistic)
         outImg = vis.get_transformed_image_from_image(image, render_factor=render_factor)
         return outImg
 
-    def process(self, pp: scripts_postprocessing.PostprocessedImage, is_enabled, render_factor, artistic):
+    def process(self, pp: scripts_postprocessing.PostprocessedImage, is_enabled, render_factor, artistic, pre_decolorization):
         if not is_enabled or is_enabled is False:
             return
 
-        pp.image = self.process_image(pp.image, render_factor, artistic)
-        pp.info["deoldify"] = f"render_factor={render_factor}, artistic={artistic}"
+        pp.image = self.process_image(pp.image, render_factor, artistic, pre_decolorization)
+        pp.info["deoldify"] = f"render_factor={render_factor}, artistic={artistic}, pre_decolorization={pre_decolorization}"
