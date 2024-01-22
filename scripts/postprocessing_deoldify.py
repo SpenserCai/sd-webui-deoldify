@@ -12,21 +12,32 @@ from modules.ui_components import FormRow
 from scripts.deoldify_base import *
 import gradio as gr
 
+if hasattr(scripts_postprocessing.ScriptPostprocessing, 'process_firstpass'):  # webui >= 1.7
+    from modules.ui_components import InputAccordion
+else:
+    InputAccordion = None
+
+
 class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
     name = "Deoldify"
     order = 20001
 
     def ui(self):
-        with FormRow():
-            is_enabled = gr.Checkbox(label="Deoldify")
-            is_enabled.value = False
-            render_factor = gr.Slider(minimum=1, maximum=50, step=1, label="Render Factor")
-            render_factor.value = 35
-            # 一个名为artistic的复选框，初始值是False
-            artistic = gr.Checkbox(label="Artistic")
-            artistic.value = False
-            pre_decolorization = gr.Checkbox(label="Pre-Decolorization",info="For yellowed photos, this option can be used to fade to black and white before coloring")
-            pre_decolorization.value = False
+        with (
+            InputAccordion(False, label="Deoldify") if InputAccordion
+            else gr.Accordion("Deoldify", open=False)
+            as is_enabled
+        ):
+            with FormRow():
+                if not InputAccordion:
+                    is_enabled = gr.Checkbox(label="enable", value=False)
+                render_factor = gr.Slider(minimum=1, maximum=50, step=1, label="Render Factor")
+                render_factor.value = 35
+                # 一个名为artistic的复选框，初始值是False
+                artistic = gr.Checkbox(label="Artistic")
+                artistic.value = False
+                pre_decolorization = gr.Checkbox(label="Pre-Decolorization",info="For yellowed photos, this option can be used to fade to black and white before coloring")
+                pre_decolorization.value = False
 
         return {
             "is_enabled": is_enabled,
