@@ -6,7 +6,7 @@ LastEditors: SpenserCai
 LastEditTime: 2023-09-07 10:21:59
 Description: file content
 '''
-from modules import script_callbacks, paths_internal
+from modules import script_callbacks, paths_internal, shared
 from scripts.deoldify_base import *
 import gradio as gr
 import tempfile
@@ -34,18 +34,21 @@ def process_image(video, render_factor,process=gr.Progress()):
     out_video = str(out_video)
     return out_video
 
+
+isChineese = shared.opts.localization.lower().startswith('zh')
+
 def deoldify_tab():
     with gr.Blocks(analytics_enabled=False) as ui:
         # 多个tab第一个是video
         with gr.Tab("Video"):
             with gr.Row():
                 with gr.Column():
-                    video_input = gr.Video(label="原视频")
+                    video_input = gr.Video(label="原视频" if isChineese else "Original Video")
                     # 一个名为render_factor的滑块，范围是1-50，初始值是35，步长是1
                     render_factor = gr.Slider(minimum=1, maximum=50, step=1, label="Render Factor")
                     render_factor.value = 35
                 with gr.Column():
-                    video_output = gr.Video(label="修复后的视频",interactive=False)
+                    video_output = gr.Video(label="修复后的视频" if isChineese else "Repaired video", interactive=False)
             run_button = gr.Button(label="Run")
             run_button.click(inputs=[video_input,render_factor],outputs=[video_output],fn=process_image)
 
