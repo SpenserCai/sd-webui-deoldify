@@ -66,11 +66,9 @@ In web-ui, go to the "Extensions" tab and use this URL https://github.com/Spense
 If your network is not good, you can download the extension from [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue)](https://huggingface.co/spensercai/DeOldify)
 
 ## Usage
-1.To completely exit webui, you need to add `--disable-safe-unpickle` at startup.
+1. In web-ui, go to the "Extra" tab and select "DeOldify" checkbox.
 
-2.In web-ui, go to the "Extra" tab and select "DeOldify" checkbox.
-
-3.Upload the old photo you want to colorize.
+2. Upload the old photo you want to colorize.
 
 ## Application Scenario
 Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
