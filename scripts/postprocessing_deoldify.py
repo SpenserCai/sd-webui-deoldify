@@ -7,7 +7,7 @@ LastEditTime: 2023-09-07 10:49:32
 Description: file content
 '''
 # DeOldify UI & Processing
-from modules import scripts_postprocessing, paths_internal
+from modules import scripts_postprocessing, paths_internal, shared
 from modules.ui_components import FormRow
 from scripts.deoldify_base import *
 import gradio as gr
@@ -54,8 +54,18 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
         return outImg
 
     def process(self, pp: scripts_postprocessing.PostprocessedImage, is_enabled, render_factor, artistic, pre_decolorization):
-        if not is_enabled or is_enabled is False:
+        if not is_enabled:
             return
+        restoreList = []
+        try:
+            old_disable_safe_unpickle = shared.cmd_opts.disable_safe_unpickle
+            def restore():
+                shared.cmd_opts.disable_safe_unpickle = old_disable_safe_unpickle
+            restoreList.append(restore)
+            shared.cmd_opts.disable_safe_unpickle = True
 
-        pp.image = self.process_image(pp.image, render_factor, artistic, pre_decolorization)
-        pp.info["deoldify"] = f"render_factor={render_factor}, artistic={artistic}, pre_decolorization={pre_decolorization}"
+            pp.image = self.process_image(pp.image, render_factor, artistic, pre_decolorization)
+            pp.info["deoldify"] = f"render_factor={render_factor}, artistic={artistic}, pre_decolorization={pre_decolorization}"
+        finally:
+            for restore in restoreList:
+                restore()

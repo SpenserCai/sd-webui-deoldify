@@ -127,7 +127,7 @@ release/DeOldifyBot
 - [x] Improve video processing speed
 - [ ] Support repair options
 - [ ] Support for simultaneous generation of images with different Render Factor values and Artistic on/off like “X/Y/Z Script” [#2](https://github.com/SpenserCai/sd-webui-deoldify/issues/2)
-- [ ] Support need not to add `--disable-safe-unpickle` at startup [#5](https://github.com/SpenserCai/sd-webui-deoldify/issues/5)
+- [x] Support need not to add `--disable-safe-unpickle` at startup [#5](https://github.com/SpenserCai/sd-webui-deoldify/issues/5)
 
 
 
