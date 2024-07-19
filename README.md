@@ -1,7 +1,7 @@
 <!--
  * @Author: SpenserCai
  * @Date: 2023-07-28 14:35:35
- * @version: 
+ * @version:
  * @LastEditors: SpenserCai
  * @LastEditTime: 2023-08-28 01:05:53
  * @Description: file content
@@ -52,7 +52,7 @@ This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github
 | Version | Compatibility | Remark |
 | :----: | :----: | :----: |
 | <=1.13.1+cu117 | ✅ | |
-| 2.1.0.dev20230711+rocm5.5  | ✅ | Thanks for [@fgtm2023](https://github.com/fgtm2023) test | 
+| 2.1.0.dev20230711+rocm5.5  | ✅ | Thanks for [@fgtm2023](https://github.com/fgtm2023) test |
 | 2.0.1+cu118 | ✅ | Thank for [@w-e-w](https://github.com/w-e-w) test |
 
 ### Other
@@ -69,6 +69,8 @@ If your network is not good, you can download the extension from [![Hugging Face
 1. In web-ui, go to the "Extra" tab and select "DeOldify" checkbox.
 
 2. Upload the old photo you want to colorize.
+
+3. If you have no effect, maybe you doesn't have enough VRAM or your GPU is not supported. You can enable `Use CPU for DeOldify` checkbox in options to avoid this
 
 ## Application Scenario
 Combining Upscale, GFPGAN, and Denoldify for old photo restoration effects
