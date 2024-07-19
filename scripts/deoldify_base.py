@@ -1,7 +1,7 @@
 '''
 Author: SpenserCai
 Date: 2023-08-09 09:58:27
-version: 
+version:
 LastEditors: SpenserCai
 LastEditTime: 2023-09-07 10:32:51
 Description: file content
@@ -11,6 +11,18 @@ from deoldify import device as deoldify_device
 from deoldify.device_id import DeviceId
 import cv2
 from PIL.Image import Image
+import gradio as gr
+
+deoldify_settings = {
+    'deoldify_use_cpu': shared.OptionInfo(
+            False,
+            "Use CPU for DeOldify",
+            gr.Checkbox,
+        ).needs_restart(),
+}
+
+shared.options_templates.update(shared.options_section(("postprocessing", "Postprocessing"), deoldify_settings))
+
 
 device_id = shared.cmd_opts.device_id
 
@@ -19,7 +31,8 @@ if device_id is not None:
     deoldify_device.set(device=device_id)
 else:
     deoldify_device.set(device=DeviceId.GPU0)
-
+if shared.opts.data.get('deoldify_use_cpu', False):
+    deoldify_device._current_device = DeviceId.CPU
 from deoldify.visualize import *
 
 import warnings
