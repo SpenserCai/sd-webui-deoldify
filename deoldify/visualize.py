@@ -1,5 +1,5 @@
-from fastai.core import *
-from fastai.vision import *
+from fastcore.all import * # Changed
+from fastai.vision.all import * # Changed
 from matplotlib.axes import Axes
 from .filters import IFilter, MasterFilter, ColorizerFilter
 from .generators import gen_inference_deep, gen_inference_wide

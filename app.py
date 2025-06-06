@@ -12,7 +12,7 @@ from PIL import Image
 import gradio as gr
 import base64
 #choices:  CPU, GPU0...GPU7
-device.set(device=DeviceId.GPU0)
+device.set(device=DeviceId.CPU)
 
 from deoldify.visualize import *
 

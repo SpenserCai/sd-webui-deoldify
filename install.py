@@ -15,7 +15,10 @@ MODEL_URLS = {
 
 DEPS = [
     'wandb',
-    'fastai==1.0.60',
+    # 'fastai==1.0.60', # Removed
+    'torch',          # Add PyTorch (e.g., 2.1.2)
+    'torchvision',    # Add Torchvision (e.g., 0.16.2)
+    'fastai==2.7.13', # Add FastAI
     'tensorboardX',
     'ffmpeg',
     'ffmpeg-python',
